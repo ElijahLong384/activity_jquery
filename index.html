@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./resources/jquery.min.js"></script>
+    <!-- jquery -->
+    <script>
+        if (typeof jQuery === "undefined"){
+            console.log("local jQuery failed to load")
+            document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>')
+        } else{
+            console.log("local jquery loaded succesfully")
+        }
+    </script>
+    <!-- jquery validation plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.22.1/dist/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $("p").css("color","green")
+            
+            $("#test-form").validate({
+                rules:{
+                    name: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                    },
+                    message: {
+                        required: true,
+                    }
+                    
+                },
+                messages: {
+                    name: "Please emter your name",
+                    email: "please emter a valid email",
+                    message: "please enter a message"
+                }
+            })
+
+
+        })
+
+    </script>
+</head>
+<body>
+    <h1>Common uses of jquery</h1>
+    <p>When i looked into jQuery, i learned that at the time of it's release jQuery was incredibly helpful and had many uses.
+         But as the years went on most the of the features in jQuery were incorperated into regular javascript so it isnt needed as much anymore.</p>
+    <form id="test-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="">
+        
+        <label for="email">Email</label>
+        <input type="email" name="email" id="">
+        
+        <label for="message">Message</label>
+        <input type="text" name="message" id="">
+
+        <input type="submit" name="sumbit" id="submit-button">
+    </form>
+</body>
+</html>
